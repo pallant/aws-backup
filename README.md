@@ -1,7 +1,7 @@
 # Useful Backup Scripts
 
 ## Installation
-Just clone the repo somewhere onto your EC2 instance.
+Just clone the repo somewhere onto your EC2 instance. You may need to chmod the scripts so that they are executable.
 
 If you want to use the db-backup script, you will need to create a `.conf` file as per `/example.conf`.
 
