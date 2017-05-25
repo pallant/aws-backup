@@ -3,28 +3,15 @@
 # This script backs up the specified mysql database to the local machine and then syncs with s3
 
 # Load in the specified config
-FILE1=$1
-
-. FILE
-
+CONFIG=$1
+. $CONFIG
 
 # mysqldump
 suffix=`date +%Y%m%d-%H`
 cmd='/usr/bin/mysqldump'
 
-# How many days to keep the backups
-lifespan=28
-
-# Where to backup the db to
-dest='/home/ubuntu/db-backups'
-s3bucket='core.la-backups';
-
-dbh='fwoldb.cblmt3yo4waw.eu-west-1.rds.amazonaws.com'
-dbu='backup'
-dbp='ZftF6pAMXoMs'
-
 # Get a list of databases
-databases=(`echo 'show databases;' | mysql -h ${dbh} -u ${dbu} --password=${dbp} | grep -v ^Database$`)
+databases=(`echo 'show databases;' | mysql -h ${DB_HOST} -u ${DB_USER} --password=${DB_PASSWORD} | grep -v ^Database$`)
 
 # Loop through each database and back it up
 for d in "${databases[@]}"; do

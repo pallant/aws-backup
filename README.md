@@ -36,3 +36,8 @@ You can backup the EC2 instance by running the ebs-backup.sh script e.g.
 # Take snapshots of the server every hour
 0 * * * * sudo /path/to/repo/ebs-snapshot.sh
 ```
+
+
+
+## Credits
+Original ebs-backup script from https://github.com/CaseyLabs/aws-ec2-ebs-automatic-snapshot-bash
