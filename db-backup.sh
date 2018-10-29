@@ -43,6 +43,6 @@ done
 /usr/local/bin/aws s3 sync ${dest} s3://${s3bucket}/db/
 
 
-# Clean up backups to only 28 days
+# Clean up backups off the server after lifespan 
 find ${dest} -mtime +${lifespan} -exec rm -rf {} \;
 find ${dest} -type d -empty -exec rmdir {} \;
